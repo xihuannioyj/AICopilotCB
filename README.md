@@ -1,41 +1,42 @@
 # AICopilotCB
 
-这个目录是从 LiveHome 仓库中抽离出来的一份 AI 协同方案副本，用于后续做独立化、通用化整理。
+AICopilotCB 是一个面向 AI 协作控制面的独立工程，用于持续沉淀、验证和演进 Agent、Prompt、Hook、守卫脚本、任务模板与协作规则。
 
-当前目标只有两个：
+## 当前目标
 
-1. 提供一个不依赖 LiveHome 业务上下文的独立阅读入口。
-2. 在不影响现有 LiveHome 协同使用的前提下，为后续通用化拆分准备目录和说明。
+1. 把协同方案作为独立工程维护，而不是依附某个业务项目叙事。
+2. 把通用核心、技术栈适配、项目覆盖和运行守卫拆成可复用、可裁剪、可持续演进的结构。
+3. 为后续治理流程、自检能力和专属演进 Agent 提供稳定载体。
 
 ## 当前状态
 
-- 已复制 AI 协同方案相关核心文件到这个目录下。
-- 原 LiveHome 项目中的协同规则、Agent、Prompt、Hook 和守卫脚本没有被替换。
-- 这里目前仍保留 LiveHome 来源痕迹，但已经补上独立入口说明和通用化拆分方案。
+- 仓库已具备协同控制面、需求文档、守卫脚本和任务模板骨架。
+- 目录已经按 core/、stacks/、projects/ 分层，便于后续继续抽象和沉淀。
+- 当前重点是让控制面自身持续进化，而不是承载单一业务项目介绍。
 
 ## 建议阅读顺序
 
 1. 先看 docs/AI协同方案需求大纲索引.md，理解需求主题与阅读顺序。
 2. 再看 .github/copilot-instructions.md、.github/agents/、.github/prompts/，了解当前控制面和执行面。
-3. 需要继续抽离时，再按 core/、stacks/、projects/livehome/ 三层目录推进落盘。
+3. 最后根据目标进入 core/、stacks/、projects/ 对应层继续扩展。
 
 ## 目录说明
 
-- .github/：当前复制过来的协同控制入口、Agent、Prompt 和 Hook。
-- docs/：当前需求索引与详细 requirements 文档。
-- scripts/：当前复制过来的守卫脚本。
-- core/：后续沉淀项目无关的通用协同规则。
-- stacks/：后续沉淀 Java、Python、Go、Flutter、Angular、小程序等技术栈适配规则。
-- projects/livehome/：后续承接 LiveHome 的项目覆盖层规则。
+- .github/：协同控制入口、Agent、Prompt 和 Hook。
+- docs/：需求索引与 requirements 专题文档。
+- scripts/：守卫脚本与校验入口。
+- core/：项目无关、技术栈无关的通用协同规则。
+- stacks/：各技术栈适配规则与接入约束。
+- projects/：具体项目覆盖层与兼容样例。
 
-## 抽离原则
+## 演进原则
 
-- 先复制，再整理，不直接替换原 LiveHome 协同文件。
-- 先抽通用核心，再抽技术栈适配，最后保留项目覆盖。
-- 任何仍然强依赖 LiveHome 的规则，都先留在项目覆盖层，不提前硬拆。
+- 先稳定协同底座，再扩展适配层和项目覆盖层。
+- 优先沉淀可复用规则，避免把单项目例外误写成全局默认。
+- 所有控制面变更都要保留机器可识别标记与守卫校验闭环。
 
 ## 下一步建议
 
-- 梳理 .github/copilot-instructions.md 中哪些规则属于通用核心。
-- 把现有 Agent 的项目无关职责抽到 core/ 或 stacks/。
-- 把 LiveHome 专属约束集中沉淀到 projects/livehome/。
+- 继续收敛 .github/copilot-instructions.md 中的全局通用规则。
+- 为 AICopilotCB 增加专属治理 Agent 与固定演进流程。
+- 补齐更多技术栈适配说明和项目覆盖模板。

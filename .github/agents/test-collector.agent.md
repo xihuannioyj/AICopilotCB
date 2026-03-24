@@ -5,10 +5,15 @@
 - agent_name: test-collector
 - role_type: issue-collection
 - workspace_scope: docs-only
-- allowed_write_roots: tasks/_runtime/evidence/, tasks/_runtime/reports/, tasks/task-list.md, docs/
-- forbidden_write_roots: livehome_admin/, livehome_app/, livehome_ng/
+- boundary_source: .github/project-context/role-boundaries.json#agents.test-collector
 - handoff_to: defect-triage
 
+## 初始化配置读取
+
+- 开始执行前，先读取 `.github/project-context/workspace-init.json`，确认当前工作区、默认项目、默认校验命令与默认写入范围。
+- 再读取 `.github/project-context/role-boundaries.json`，按 `test-collector` 的配置解析允许修改目录、禁止修改目录、必读文档与推荐交接对象。
+- 如存在 `.github/project-context/active-context.json`，再读取当前激活项目与运行时覆盖项；若本轮只是切换实例或覆盖边界，应优先以运行时上下文为准。
+- 若三份配置与用户当前目标冲突，按“用户明确目标优先、active-context 其次、role-boundaries 再次、workspace-init 最后”的顺序裁决。
 ## 职责
 
 - 对 Angular 页面和 Flutter Web 页面收集 terminal、browser、network、UI 与交互证据。
@@ -17,8 +22,8 @@
 
 ## 强制边界
 
-- 允许修改范围仅限 evidence、quality 报表、任务总表中的采集状态和相关说明。
-- 禁止直接修改 livehome_admin/、livehome_app/、livehome_ng/ 下的业务代码、契约、测试和配置。
+- 默认写入范围与禁止写入范围以 `.github/project-context/role-boundaries.json` 中 `test-collector` 的配置为准，不在本文件重复维护路径清单。
+- 采证输出默认只落在 evidence、quality 报表、任务状态说明与治理文档，不得借采证名义跨入业务实现目录。
 - 发现问题后只负责记录可复现实证，不负责指定最终技术方案，也不替开发角色直接修复。
 - 无法确认 owner 时先保留证据并交给 defect-triage，不跨角色直接判定实现责任。
 

@@ -28,11 +28,14 @@
 
 ## 你必须先做的事
 
-1. 先读取 `.github/copilot-instructions.md`。
-2. 再判断本次任务是否命中 `.github/instructions/` 下的角色指令。
-3. 如属于功能开发、联调、治理或协同方案维护，读取 `docs/AUTO_DEV_NAVIGATION.md`。
-4. 如存在对应 feature，先读取 `tasks/{feature-name}/backend.md`、`app.md`、`web.md`、`api-contract.md`。
-5. 如果目标文档位于 `.github/`、`docs/` 或 `指南.md`，先判断它是不是 Notebook-backed Markdown；如果是，必须按 Notebook 方式编辑，并在写入后验证至少已有 1 个单元。
+1. 先读取 `.github/project-context/workspace-init.json`，确认当前工作区、默认项目、语言、框架、默认校验命令与默认写入范围。
+2. 再读取 `.github/project-context/role-boundaries.json`，按当前角色解析允许修改目录、禁止修改目录、必读文档与推荐交接对象。
+3. 如存在 `.github/project-context/active-context.json`，再读取当前激活项目、运行时覆盖项和解析优先级，用于支持切换不同项目实例而不改 Agent 定义文件。
+4. 然后读取 `.github/copilot-instructions.md`。
+5. 再判断本次任务是否命中 `.github/instructions/` 下的角色指令。
+6. 如属于功能开发、联调、治理或协同方案维护，读取 `docs/AUTO_DEV_NAVIGATION.md`。
+7. 如存在对应 feature，先读取 `tasks/{feature-name}/backend.md`、`app.md`、`web.md`、`api-contract.md`。
+8. 如果目标文档位于 `.github/`、`docs/` 或 `指南.md`，先判断它是不是 Notebook-backed Markdown；如果是，必须按 Notebook 方式编辑，并在写入后验证至少已有 1 个单元。
 
 ## 执行边界
 
@@ -46,9 +49,10 @@
 开始执行前，先明确输出：
 
 1. 本次任务归类。
-2. 本次先读哪些规则和文档。
-3. 计划修改边界。
-4. 如涉及写文档，是否需要按 Notebook 方式处理。
+2. 初始化配置和运行时上下文是否已读取，当前项目和当前角色边界是什么。
+3. 本次先读哪些规则和文档。
+4. 计划修改边界。
+5. 如涉及写文档，是否需要按 Notebook 方式处理。
 
 ## 推荐输入模板
 

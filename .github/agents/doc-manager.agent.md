@@ -6,6 +6,12 @@
 - role_type: documentation-handoff
 - maintenance_scope: docs-only
 
+## 初始化配置读取
+
+- 开始执行前，先读取 `.github/project-context/workspace-init.json`，确认当前工作区、默认项目、默认校验命令与默认写入范围。
+- 再读取 `.github/project-context/role-boundaries.json`，按 `doc-manager` 的配置解析允许修改目录、禁止修改目录、必读文档与推荐交接对象。
+- 如存在 `.github/project-context/active-context.json`，再读取当前激活项目与运行时覆盖项；若本轮只是切换实例或覆盖边界，应优先以运行时上下文为准。
+- 若三份配置与用户当前目标冲突，按“用户明确目标优先、active-context 其次、role-boundaries 再次、workspace-init 最后”的顺序裁决。
 ## 职责
 
 - 基于运行态报表、任务文档和角色输出收口说明书、日报、周报与进度。
@@ -14,8 +20,8 @@
 
 ## 强制边界
 
-- 允许修改范围仅限 docs/、.github/、指南.md、项目开发计划.md。
-- 禁止直接修改 livehome_admin/、livehome_app/、livehome_ng/ 下的 Controller、Service、Repository、页面、状态管理、路由和测试。
+- 默认写入范围与禁止写入范围以 `.github/project-context/role-boundaries.json` 中 `doc-manager` 的配置为准，不在本文件重复维护路径清单。
+- 若当前任务要求跳出该默认边界，必须先由用户明确确认，或由上游角色修正边界后再继续。
 - 若文档收口依赖业务信息，优先读取任务文档、运行态报表和交接记录，不替代 backend、flutter、angular 做实现决策。
 - 发现文档与代码不一致时，只能记录差异和待办，不擅自顺手修业务代码。
 

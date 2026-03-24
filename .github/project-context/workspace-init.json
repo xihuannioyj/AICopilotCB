@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0.0",
+  "workspaceId": "aicopilotcb",
+  "workspaceName": "AICopilotCB",
+  "defaultProject": "aicopilotcb",
+  "runtimeContextFile": ".github/project-context/active-context.json",
+  "description": "AICopilotCB 协同控制面初始化配置。用于在新会话或专属治理 Agent 启动时注入统一工作区上下文。",
+  "projects": {
+    "aicopilotcb": {
+      "root": ".",
+      "projectType": "collaboration-control-plane",
+      "languages": [
+        "markdown",
+        "json",
+        "python"
+      ],
+      "frameworks": [
+        "copilot-agents",
+        "prompts",
+        "hooks",
+        "workspace-guard"
+      ],
+      "defaultWriteRoots": [
+        ".github/",
+        "docs/",
+        "core/",
+        "stacks/",
+        "projects/",
+        "scripts/",
+        "tasks/_templates/",
+        "README.md"
+      ],
+      "defaultForbiddenWriteRoots": [],
+      "requiredReads": [
+        "README.md",
+        ".github/copilot-instructions.md",
+        "docs/AI协同方案需求大纲索引.md",
+        "docs/requirements/",
+        "scripts/ai_workspace_guard.py"
+      ],
+      "validation": {
+        "changed": "python scripts/ai_workspace_guard.py validate-changed --root . --json",
+        "markdown": "python scripts/ai_workspace_guard.py validate-markdown <file> --root . --require-changed --json",
+        "files": "python scripts/ai_workspace_guard.py validate-files <file> --root . --json"
+      }
+    }
+  }
+}

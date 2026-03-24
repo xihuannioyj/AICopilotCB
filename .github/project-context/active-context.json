@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "activeWorkspace": "aicopilotcb",
+  "activeProject": "aicopilotcb",
+  "activeProfile": "default",
+  "activeAgent": "aicopilotcb-evolution",
+  "description": "AICopilotCB 运行时上下文。用于在不改 Agent 定义文件的前提下，切换当前激活项目、角色或覆盖项。",
+  "resolutionOrder": [
+    "user-explicit-target",
+    "active-context-overrides",
+    "role-boundaries",
+    "workspace-init"
+  ],
+  "overrides": {
+    "project": null,
+    "writeRoots": [],
+    "forbiddenWriteRoots": [],
+    "requiredReads": [],
+    "validation": {}
+  },
+  "session": {
+    "useWorkspaceDefaults": true,
+    "useRoleBoundaries": true,
+    "allowOverrideByUserIntent": true
+  }
+}

@@ -1,4 +1,4 @@
-# LiveHome 全局 AI 协作指令
+# AICopilotCB 全局 AI 协作指令
 
 ## 统一沟通语言
 
@@ -9,13 +9,17 @@
 
 ## 项目概览
 
-LiveHome 是一个房源物业需求撮合平台，采用 Monorepo 结构，包含三个子项目：
+AICopilotCB 是一个用于沉淀、维护和演进 AI 协作控制面的工作区，当前仓库主要包含以下模块：
 
-| 子项目 | 目录 | 技术栈 | 角色 |
-|--------|------|--------|------|
-| 后端服务 | `livehome_admin/` | PHP 8.x + Laravel 10 | API 提供方 |
-| 移动端 | `livehome_app/` | Flutter 3.x + Dart 3.x | App 端 API 消费方 |
-| 管理后台 | `livehome_ng/` | Angular 21 + NG-ZORRO | Web Admin API 消费方 |
+| 模块 | 目录 | 作用 |
+|------|------|------|
+| 协同控制面 | .github/ | Agent、Prompt、Hook、Instructions |
+| 需求与说明 | docs/ | 需求索引与专题文档 |
+| 通用核心层 | core/ | 跨项目协作基线 |
+| 技术栈适配层 | stacks/ | 各技术栈接入约束 |
+| 项目覆盖层 | projects/ | 单项目例外规则与兼容样例 |
+| 守卫脚本 | scripts/ | 校验与编排辅助脚本 |
+| 任务模板 | 	asks/_templates/ | 标准交付模板 |
 
 ## AI 协作入口分流规则
 

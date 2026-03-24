@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "1.0.0",
+  "defaultProject": "aicopilotcb",
+  "runtimeContextFile": ".github/project-context/active-context.json",
+  "resolutionOrder": [
+    "user-explicit-target",
+    "active-context-overrides",
+    "role-boundaries",
+    "workspace-init"
+  ],
+  "agents": {
+    "aicopilotcb-evolution": {
+      "project": "aicopilotcb",
+      "roleType": "governance",
+      "mode": "control-plane-only",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        ".github/",
+        "docs/",
+        "core/",
+        "stacks/",
+        "projects/",
+        "scripts/",
+        "tasks/_templates/",
+        "README.md"
+      ],
+      "forbiddenWriteRoots": [],
+      "requiredReads": [
+        "README.md",
+        ".github/copilot-instructions.md",
+        ".github/agents/",
+        ".github/prompts/",
+        "docs/AI协同方案需求大纲索引.md",
+        "docs/requirements/",
+        "scripts/ai_workspace_guard.py"
+      ],
+      "handoffTargets": [
+        "doc-manager",
+        "architect"
+      ]
+    },
+    "architect": {
+      "project": "aicopilotcb",
+      "roleType": "task-architecture",
+      "mode": "task-decomposition",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        ".github/",
+        "docs/",
+        "tasks/"
+      ],
+      "forbiddenWriteRoots": [
+        "livehome_admin/",
+        "livehome_app/",
+        "livehome_ng/"
+      ],
+      "requiredReads": [
+        ".github/copilot-instructions.md",
+        "tasks/",
+        "docs/requirements/"
+      ],
+      "handoffTargets": [
+        "backend",
+        "angular",
+        "flutter",
+        "doc-manager"
+      ]
+    },
+    "backend": {
+      "project": "aicopilotcb",
+      "roleType": "backend-delivery",
+      "mode": "owner-root-only",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        "livehome_admin/app/",
+        "livehome_admin/routes/",
+        "livehome_admin/tests/",
+        "livehome_admin/database/",
+        "livehome_admin/config/"
+      ],
+      "forbiddenWriteRoots": [
+        "livehome_ng/",
+        "livehome_app/"
+      ],
+      "requiredReads": [
+        ".github/copilot-instructions.md",
+        "tasks/task-dispatch-index.md",
+        "tasks/task-list.md"
+      ],
+      "handoffTargets": [
+        "angular",
+        "flutter",
+        "architect"
+      ]
+    },
+    "angular": {
+      "project": "aicopilotcb",
+      "roleType": "web-delivery",
+      "mode": "owner-root-only",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        "livehome_ng/src/",
+        "livehome_ng/public/",
+        "livehome_ng/package.json",
+        "livehome_ng/angular.json"
+      ],
+      "forbiddenWriteRoots": [
+        "livehome_admin/",
+        "livehome_app/"
+      ],
+      "requiredReads": [
+        ".github/copilot-instructions.md",
+        "tasks/task-dispatch-index.md",
+        "tasks/task-list.md"
+      ],
+      "handoffTargets": [
+        "backend",
+        "architect",
+        "test-collector"
+      ]
+    },
+    "flutter": {
+      "project": "aicopilotcb",
+      "roleType": "app-delivery",
+      "mode": "owner-root-only",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        "livehome_app/lib/",
+        "livehome_app/test/",
+        "livehome_app/web/",
+        "livehome_app/pubspec.yaml"
+      ],
+      "forbiddenWriteRoots": [
+        "livehome_admin/",
+        "livehome_ng/"
+      ],
+      "requiredReads": [
+        ".github/copilot-instructions.md",
+        "tasks/task-dispatch-index.md",
+        "tasks/task-list.md"
+      ],
+      "handoffTargets": [
+        "backend",
+        "architect",
+        "test-collector"
+      ]
+    },
+    "product-manager": {
+      "project": "aicopilotcb",
+      "roleType": "demand-analysis",
+      "mode": "documentation-only",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        ".github/",
+        "docs/",
+        "tasks/",
+        "README.md"
+      ],
+      "forbiddenWriteRoots": [
+        "livehome_admin/",
+        "livehome_app/",
+        "livehome_ng/"
+      ],
+      "requiredReads": [
+        ".github/copilot-instructions.md",
+        "docs/requirements/"
+      ],
+      "handoffTargets": [
+        "architect",
+        "doc-manager"
+      ]
+    },
+    "doc-manager": {
+      "project": "aicopilotcb",
+      "roleType": "documentation-governance",
+      "mode": "documentation-only",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        ".github/",
+        "docs/",
+        "tasks/",
+        "README.md"
+      ],
+      "forbiddenWriteRoots": [
+        "livehome_admin/",
+        "livehome_app/",
+        "livehome_ng/"
+      ],
+      "requiredReads": [
+        ".github/copilot-instructions.md",
+        "docs/",
+        "tasks/_templates/"
+      ],
+      "handoffTargets": [
+        "aicopilotcb-evolution",
+        "architect"
+      ]
+    },
+    "test-collector": {
+      "project": "aicopilotcb",
+      "roleType": "quality-collection",
+      "mode": "read-heavy",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        ".github/",
+        "docs/",
+        "tasks/"
+      ],
+      "forbiddenWriteRoots": [
+        "livehome_admin/",
+        "livehome_app/",
+        "livehome_ng/"
+      ],
+      "requiredReads": [
+        ".github/copilot-instructions.md",
+        "tasks/",
+        "docs/"
+      ],
+      "handoffTargets": [
+        "defect-triage",
+        "backend",
+        "angular",
+        "flutter"
+      ]
+    },
+    "defect-triage": {
+      "project": "aicopilotcb",
+      "roleType": "quality-triage",
+      "mode": "read-heavy",
+      "supportsRuntimeContext": true,
+      "allowedWriteRoots": [
+        ".github/",
+        "docs/",
+        "tasks/"
+      ],
+      "forbiddenWriteRoots": [
+        "livehome_admin/",
+        "livehome_app/",
+        "livehome_ng/"
+      ],
+      "requiredReads": [
+        ".github/copilot-instructions.md",
+        "tasks/",
+        "docs/"
+      ],
+      "handoffTargets": [
+        "backend",
+        "angular",
+        "flutter",
+        "architect"
+      ]
+    }
+  }
+}
