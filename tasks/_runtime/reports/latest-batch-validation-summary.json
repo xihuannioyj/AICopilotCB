@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "overall": "unknown",
+  "failures": 0,
+  "failureCategories": [],
+  "recommendedRecoveryActions": [
+    "补齐真实任务与验证链路后再生成批量校验摘要"
+  ],
+  "groupedSummary": {
+    "byFeatureValidation": []
+  }
+}

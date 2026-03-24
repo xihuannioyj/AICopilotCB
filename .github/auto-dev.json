@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "workspace": "aicopilotcb",
+  "status": "bootstrap",
+  "description": "AUTO_DEV 控制面占位配置。当前仓库已补齐导航、模板与 runtime 骨架，但未启用真实 orchestrator。",
+  "features": {
+    "runtimeReports": true,
+    "manualReadiness": true,
+    "orchestrator": false,
+    "assistedExecution": false
+  }
+}

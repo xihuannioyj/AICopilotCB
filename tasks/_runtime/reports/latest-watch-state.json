@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "not-started",
+  "watch": false,
+  "lastActivityRound": 0,
+  "lastActivityType": null,
+  "nextAction": "初始化真实运行态后再进入 watch 模式"
+}

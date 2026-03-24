@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "bootstrap-required",
+  "summary": {
+    "readinessStage": "control-plane-skeleton-ready",
+    "readinessScore": 0,
+    "validationHealth": {
+      "overall": "unknown"
+    },
+    "taskDocClosure": {
+      "overall": "unknown"
+    },
+    "manualApproval": {
+      "pending": 0
+    },
+    "assistedExecution": {
+      "readyToExecute": 0
+    },
+    "reviewQueue": {
+      "assistedReady": 0,
+      "validationBlocked": 0,
+      "validationScriptBlocked": 0,
+      "validationEnvironmentBlocked": 0
+    },
+    "watchLoop": {
+      "watch": false,
+      "consecutiveIdleRounds": 0,
+      "remainingTasks": 0,
+      "stopReason": "not-started"
+    }
+  },
+  "operatorActionQueue": [
+    "补齐 runtime 与人工主看板中的真实任务数据后再执行 readiness 判断"
+  ],
+  "gapToReady": {
+    "checklist": {
+      "allTasksDone": false,
+      "validationsGreen": false,
+      "taskDocsClosed": false,
+      "approvalsResolved": true,
+      "noBlockedTasks": true
+    }
+  }
+}

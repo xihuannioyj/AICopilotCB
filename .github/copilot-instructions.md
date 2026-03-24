@@ -71,7 +71,7 @@ tasks/
 
 - `tasks/task-list.md` 是 `tasks/` 下的当前开发项目任务总表，由 Architect 在拆解业务任务时持续维护。
 - 这份总表采用“任务摘要卡片 + Agent 跟踪行”布局：每个任务块先记录所属功能目录、任务名称、中文描述、当前状态、预估完成周期与下一动作；再用 Agent 行记录完成状态与遇到问题。
-- `backend`、`flutter`、`angular`、`tester` 以及按需启用的 `product-manager`、`doc-manager`、`test-collector`、`defect-triage` 在开始执行和完成收尾时，必须同步更新 `tasks/task-list.md` 中自己的状态。
+- `backend`、`flutter`、`angular` 以及按需启用的 `product-manager`、`doc-manager`、`test-collector`、`defect-triage` 在开始执行和完成收尾时，必须同步更新 `tasks/task-list.md` 中自己的状态。
 - AI 协同方案、Prompt、Agent、Hook、Instructions、指南、任务模板和自动化脚本治理任务不进入 `tasks/task-list.md`。
 - `tasks/_runtime/task-index.json` 仍是运行态自动化的主数据；`tasks/task-list.md` 仅用于 Owner 查看当前业务开发项目的任务块、角色进度和阻塞信息。
 
@@ -82,7 +82,7 @@ tasks/
 分批启用规则如下：
 
 - 立即启用：`product-manager`、`doc-manager`。这两个角色已纳入当前聊天协作主链，负责需求澄清、体验前置、文档治理、日报与进度收口。
-- 保持既有主链：`architect`、`backend`、`angular`、`flutter`、`tester` 继续按当前已验证的工程交付与回流链运行。
+- 保持既有主链：`architect`、`backend`、`angular`、`flutter` 继续按当前已验证的工程交付与回流链运行。
 - 协议占位，升级后激活：`test-collector`、`defect-triage`。这两个角色已加入项目定义和 Agent 目录，但当前不接入 orchestrator 自动轮询，待页面巡检链、缺陷模板和回流策略进一步固化后再正式激活。
 
 所有新增角色默认仍受“禁止跨职责猜测”“禁止跨业务根目录混改”“方案维护任务默认只改 `.github/`、`docs/`、`指南.md`”等全局规则约束。
@@ -107,7 +107,7 @@ tasks/
 - `flutter`：负责 `livehome_app` 页面、客户端路由、模型和接口消费；不负责发明接口、不负责补数据库种子数据、不负责替 backend 决定示例响应。临时本地 mock 只允许用于开发占位，不得当作契约定稿。
 - `product-manager`：负责需求补全、用户路径、入口预期、优先级、验收口径、需求缺陷识别、不合理项判断、行业/竞品参考和开发计划完善；不直接修改业务代码和数据库结构。
 - `doc-manager`：负责把已确认的职责边界、协同流程、运行规则同步到说明书、进度文档和相关模板；不替工程 Agent 发明技术方案。
-- `tester`、`test-collector`、`defect-triage`：负责验证、采集和归因，不负责直接发明修复方案；若发现问题，必须先明确归属是 backend、angular、flutter、architect 还是运行时流程。
+- `test-collector`、`defect-triage`：负责验证链中的采证与归因，不负责直接发明修复方案；若发现问题，必须先明确归属是 backend、angular、flutter、architect 还是运行时流程。
 
 ### 4.3 数据库相关工作的默认归属
 
@@ -219,7 +219,7 @@ tasks/
 ### Web Admin 轨道规则
 
 - 立即启用：`product-manager`、`doc-manager`。这两个角色已纳入当前聊天协作主链，其中 `product-manager` 负责需求补全、缺陷识别、行业/竞品分析、体验前置与开发计划完善，`doc-manager` 负责文档治理、日报与进度收口。
-- 保持既有主链：`architect`、`backend`、`angular`、`flutter`、`tester` 继续按当前已验证的工程交付与回流链运行。
+- 保持既有主链：`architect`、`backend`、`angular`、`flutter` 继续按当前已验证的工程交付与回流链运行。
 - 协议占位，升级后激活：`test-collector`、`defect-triage`。这两个角色已加入项目定义和 Agent 目录，但当前不接入 orchestrator 自动轮询，待页面巡检链、缺陷模板和回流策略进一步固化后再正式激活。
 
 ### Flutter App 轨道规则

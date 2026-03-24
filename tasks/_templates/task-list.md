@@ -24,7 +24,6 @@
 | backend | {当前后端任务或无} | ⬜ 未开始 | 是 | 仅负责 livehome_admin/ |
 | flutter | {当前 App 任务或无} | ⬜ 未开始 | 是 | 仅负责 livehome_app/ |
 | angular | {当前 Web 任务或无} | ⬜ 未开始 | 是 | 仅负责 livehome_ng/ |
-| tester | {当前测试任务或未启用} | ⏸ 未启用 | 是 | 兼容质量角色，按需启用 |
 | test-collector | {当前缺陷采集任务或未启用} | ⏸ 未启用 | 是 | 只采证据，不修代码 |
 | defect-triage | {当前缺陷分诊任务或未启用} | ⏸ 未启用 | 是 | 只做归因与回流，不修代码 |
 | doc-manager | {当前文档任务或未启用} | ⏸ 未启用 | 是 | 只做文档收口，不改业务代码 |
@@ -37,7 +36,7 @@
 
 | 字段 | 内容 |
 |------|------|
-| 责任角色 | {architect/backend/flutter/angular/tester/...} |
+| 责任角色 | {architect/backend/flutter/angular/test-collector/defect-triage/...} |
 | 非责任项 | {明确不由当前角色承担的内容} |
 | 交接对象 | {下一棒角色} |
 | 当前阻塞 | {若不能 done，卡在哪里} |
@@ -63,7 +62,6 @@
 | backend | 未开始 | 等待领取 |
 | flutter | 未开始 | 等待 backend 契约定稿 |
 | angular | 未开始 | 等待 backend 契约定稿 |
-| tester | 未启用 | 等待进入联调阶段 |
 | test-collector | 未启用 | 等待页面可联调 |
 | defect-triage | 未启用 | 等待有 findings 输入 |
 | doc-manager | 未启用 | 等待收尾阶段启用 |
@@ -75,3 +73,4 @@
 - AI 协同方案、Prompt、Agent、Hook、Runbook、守卫脚本、API 治理等治理专项：写 `tasks/governance-task-list.md`。
 - 运行态自动编排、验证结果、批量报告和调度状态：以 `tasks/_runtime/task-index.json` 为准。
 - 同一任务只允许一个人工主看板；切换看板时应迁移主状态，不保留双写。
+

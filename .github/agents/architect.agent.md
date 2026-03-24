@@ -178,7 +178,7 @@ tools:
 - 从现在起，Architect 拆业务任务时必须维护当前开发项目任务总表 `tasks/task-list.md`，并在对应 `tasks/{功能名}/` 下继续产出 `backend.md`、`app.md`、`web.md`、`api-contract.md`。
 - `tasks/task-list.md` 只用于登记 `livehome_admin`、`livehome_app`、`livehome_ng` 三端业务开发任务；AI 协同方案、Prompt、Agent、Hook、Instructions、指南、任务模板和自动化脚本治理任务不进入此表。
 - 任务总表只保留：一级任务名称、任务中文描述、执行 Agent、当前状态、最新动作、Agent 是否空闲。
-- 一级任务默认至少覆盖 `architect`、`backend`、`app`、`web`；若本功能需要回归或验收，再补 `tester`。不参与的 Agent 显式写 `未启用`。
+- 一级任务默认至少覆盖 `architect`、`backend`、`app`、`web`；若本功能需要质量闭环，再补 `test-collector`、`defect-triage` 或 `doc-manager`。不参与的 Agent 显式写 `未启用`。
 - Architect 维护任务总表时，必须让一级任务与具体 Agent 对齐，避免出现一个大任务里混入多个 Agent 的职责。
 - Architect 完成拆解收尾时，必须把自己的状态改为 `已完成`，并把后续 Agent 的初始状态设置为 `未开始`、`可开始`、`等待契约` 等真实状态。
 - 模板统一以 `tasks/_templates/task-list.md` 为准。
@@ -197,5 +197,5 @@ tools:
 - architect 是任务拆解和任务池切换的决策责任人，负责判断某个功能应进入当前开发窗口还是留在 backlog，并同步 task-list 与功能任务文档。
 - 常规情况下，architect 完成拆解并确认任务池后，应把派发结论交给 doc-manager 维护 `tasks/task-dispatch-index.md`。
 - 若拆解当轮需要立即切窗，architect 可以直接同步派发索引；doc-manager 随后负责复核说明文字、读取顺序和跨看板口径。
-- backend、flutter、angular、tester 只有在派发索引已写入当前窗口，或 architect 已明确交接“任务已进入当前窗口且索引已同步”后，才允许按当前窗口任务开工。
+- backend、flutter、angular、test-collector、defect-triage 只有在派发索引已写入当前窗口，或 architect 已明确交接“任务已进入当前窗口且索引已同步”后，才允许按当前窗口任务开工。
 - 若只是业务角色进度变化，不应把进度回写伪装成任务池切换；任务池切换和状态回写必须分开处理。

@@ -3,7 +3,7 @@
 ## 使用场景
 
 - 当你希望按 8 Agent 团队启动一个新需求、体验优化或缺陷治理任务时，优先使用本 Prompt。
-- 适用于：先让产品经理补全需求、识别缺陷和不合理项、给出行业/竞品改进建议并完善开发计划，再让 architect 拆任务，随后由 backend / app / web 执行，最后接 tester / test-collector / defect-triage / doc-manager 收口。
+- 适用于：先让产品经理补全需求、识别缺陷和不合理项、给出行业/竞品改进建议并完善开发计划，再让 architect 拆任务，随后由 backend / app / web 执行，最后接 test-collector / defect-triage / doc-manager 收口。
 
 ## 默认调用顺序
 
@@ -11,10 +11,10 @@
 2. `architect`：再产出 `backend.md`、`app.md`、`web.md`、`api-contract.md`。
 3. `backend`：先定稿真实契约并实现接口。
 4. `flutter` / `angular`：按契约并行开发。
-5. `tester`：继续承担当前最小回流闭环。
-6. `test-collector`：在页面可联调后采集控制台错误、UI 和交互问题。
-7. `defect-triage`：把采集结果转成优先级、责任归属和回流建议。
-8. `doc-manager`：统一更新说明书、日报、进度和文档收口。
+5. `test-collector`：在页面可联调后采集控制台错误、UI 和交互问题。
+6. `defect-triage`：把采集结果转成优先级、责任归属和回流建议。
+7. `doc-manager`：统一更新说明书、日报、进度和文档收口。
+
 
 ## 当前阶段限制
 
@@ -24,7 +24,7 @@
 
 ## 推荐输入模板
 
-请按 8 Agent 团队流程处理这个需求：先让 `product-manager` 补全需求短板，识别不合理项与隐藏依赖，结合行业/竞品给出改进建议，并完善开发计划与验收口径；再让 `architect` 按分析结果拆出 `backend.md`、`app.md`、`web.md`、`api-contract.md`。如果需要联调和缺陷闭环，再按 `backend -> flutter/angular -> tester -> test-collector -> defect-triage -> doc-manager` 的顺序推进，不要跳步骤，也不要让前端先猜接口。
+请按 8 Agent 团队流程处理这个需求：先让 `product-manager` 补全需求短板，识别不合理项与隐藏依赖，结合行业/竞品给出改进建议，并完善开发计划与验收口径；再让 `architect` 按分析结果拆出 `backend.md`、`app.md`、`web.md`、`api-contract.md`。如果需要联调和缺陷闭环，再按 `backend -> flutter/angular -> test-collector -> defect-triage -> doc-manager` 的顺序推进，不要跳步骤，也不要让前端先猜接口。
 
 ## 直接可用示例
 

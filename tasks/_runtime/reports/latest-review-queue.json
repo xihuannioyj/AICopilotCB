@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "bootstrap-required",
+  "reviewRequired": [],
+  "summary": {
+    "validationBlocked": 0,
+    "validationScriptBlocked": 0,
+    "validationEnvironmentBlocked": 0,
+    "assistedReady": 0
+  }
+}
